@@ -12,9 +12,14 @@ export default function Input() {
     
     // axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
 
-    getUrlData(inputText);
+    // getUrlData(inputText);
+
+    axios
+      .post('/api/URLs', inputText);
 
    
+      console.log(inputText);
+
   }
   
   return (
