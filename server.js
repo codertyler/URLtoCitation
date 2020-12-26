@@ -3,6 +3,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 const { DOMParser } = require('xmldom');
+const fetch = require('node-fetch');
+
 
 
 
@@ -21,27 +23,44 @@ app.get('/api/getList', (req,res) => {
     console.log('Sent list of items');
 });
 
-app.post('/api/URLs', (req, res) => {
+app.all('/api/URLs', (req, res) => {
   const inputText = req.body;
   
-  for(const url of inputText) {
-    axios
-    .get(url)
-    .then((html)=> {
-      let parser = new DOMParser();
-      let doc = parser.parseFromString(html.data, 'text/html');
-      console.log(JSON.parse(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data).author.name)
-      console.log(JSON.parse(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data).headline)
-      console.log(JSON.parse(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data).datePublished)
+  
+   
 
+  // const urlData = () => {
+  //   for(const url of inputText) {
+  //     console.log(url);
+  //     console.log(inputText);
+  //     axios
+  //     .get(url)
+  //     .then((html)=> {
+  //       let parser = new DOMParser();
+  //       var doc = parser.parseFromString(html.data, 'text/html');
+  //       // console.log(JSON.parse(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data).author.name)
+  //       // console.log(JSON.parse(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data).headline)
+  //       // console.log(JSON.parse(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data).datePublished)
+  
+  //       return typeof html.data;
+  //       // result.push(html.data);
+  //       // console.log(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data)
+  //     })  
+  //     .catch(error => {
+  //       console.log(error);
+  //     })
+  //   }
+  // }
+  
 
-    })  
-    .catch(error => {
-      console.log(error);
-    })
-  }
+  // res.json(urlData());
 
+  
 })
+
+// app.get('/api/URLs', (req, res) => {
+//   res.send('working')
+// })
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{
