@@ -1,6 +1,5 @@
 import React from 'react';
 import "./Input.css";
-import getUrlData from "../helpers/getUrlData";
 import axios from 'axios';
 
 export default function Input() {
@@ -15,7 +14,7 @@ export default function Input() {
     // getUrlData(inputText);
 
     axios
-      .post('/api/URLs', inputText);
+      .get('/api/URLs', {params: inputText});
 
    
       console.log(inputText);

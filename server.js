@@ -23,8 +23,23 @@ app.get('/api/getList', (req,res) => {
     console.log('Sent list of items');
 });
 
-app.all('/api/URLs', (req, res) => {
-  const inputText = req.body;
+app.get('/api/URLs', (req, res) => {
+  
+  const inputObj = req.query;
+  const urlResponse = [];
+
+  for (const key in inputObj) {
+    axios.get(inputObj[key])
+      .then((res) => res.json())
+      .then(data => {
+        let parser = new DOMParser();
+        const doc = parser.parseFromString(res.data, 'text/html');
+
+        console.log(data);
+      })}
+
+    
+      
   
   
    
@@ -58,9 +73,7 @@ app.all('/api/URLs', (req, res) => {
   
 })
 
-// app.get('/api/URLs', (req, res) => {
-//   res.send('working')
-// })
+
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{
