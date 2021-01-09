@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const axios = require('axios');
 const { DOMParser } = require('xmldom');
-const fetch = require('node-fetch');
-
+const cheerio = require('cheerio');
+const request = require('request');
+const { url } = require('inspector');
 
 
 
@@ -23,54 +23,27 @@ app.get('/api/getList', (req,res) => {
     console.log('Sent list of items');
 });
 
-app.get('/api/URLs', (req, res) => {
+app.post('/api/URLs', (req, res) => {
   
-  const inputObj = req.query;
+  const inputObj = req.body.params;
   const urlResponse = [];
 
-  for (const key in inputObj) {
-    axios.get(inputObj[key])
-      .then((res) => res.json())
-      .then(data => {
-        let parser = new DOMParser();
-        const doc = parser.parseFromString(res.data, 'text/html');
+  for (const key of inputObj) {
+    request(key, (error, response, html) => {
+      if(!error && response.statusCode == 200){
+        const $ = cheerio.load(html);
+        const rawObj = JSON.parse($('[type="application/ld+json"]').html());
+        // console.log(rawObj);
+        urlResponse.push(rawObj);
+        // const jsonResponse = JSON.stringify(urlResponse);
 
-        console.log(data);
-      })}
+        res.send(urlResponse);
 
-    
-      
+      };
+    })
   
-  
-   
+    }
 
-  // const urlData = () => {
-  //   for(const url of inputText) {
-  //     console.log(url);
-  //     console.log(inputText);
-  //     axios
-  //     .get(url)
-  //     .then((html)=> {
-  //       let parser = new DOMParser();
-  //       var doc = parser.parseFromString(html.data, 'text/html');
-  //       // console.log(JSON.parse(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data).author.name)
-  //       // console.log(JSON.parse(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data).headline)
-  //       // console.log(JSON.parse(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data).datePublished)
-  
-  //       return typeof html.data;
-  //       // result.push(html.data);
-  //       // console.log(doc.getElementsByTagName("script")["0"].attributes["0"].ownerElement.childNodes["0"].data)
-  //     })  
-  //     .catch(error => {
-  //       console.log(error);
-  //     })
-  //   }
-  // }
-  
-
-  // res.json(urlData());
-
-  
 })
 
 
