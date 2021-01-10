@@ -10,15 +10,26 @@ export default function Input() {
   const clicked = (event) => {
     event.preventDefault();
     const inputText = event.target.previousSibling.value.split(/\n/);
-
+    console.log(inputText);
+    const citationData = [];
     // axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
 
     // getUrlData(inputText);
 
-    axios.post("/api/URLs", { params: inputText }).then((response) => {
-      console.log(response.data);
+    for(let url of inputText) {
+      axios.post("/api/URLs", { params: url }).then((response) => {
+        
+        citationData.push(response.data);
+        // console.log(response.data);
+        // setDataArray(JSON.stringify(response.data));
+        // setDataArray(`${response.data.lastName}, ${response.data.initial}, ${response.data.publicationDate}  ${"<h1>"} ${response.data.title} ${"</h1>"}, ${response.data.publisher}, ${response.data.url}`)
+        
+      });
+      console.log(citationData);
+    }
+    
 
-    });
+    
   };
 
   return (
@@ -28,7 +39,7 @@ export default function Input() {
         <input type="submit" onClick={clicked} />
       </form>
       <br/>
-      <div> the data: {dataArray}</div>
+      <div><i>{dataArray}</i></div>
     </div>
   );
 }
