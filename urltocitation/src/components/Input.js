@@ -1,35 +1,42 @@
 import React, { useState } from "react";
 import "./Input.css";
 import axios from "axios";
+import test_data from "../helpers/test_data.js";
 
 export default function Input() {
   const [dataArray, setDataArray] = useState([]);
 
-  
-
   const clicked = (event) => {
     event.preventDefault();
     const inputText = event.target.previousSibling.value.split(/\n/);
-    console.log(inputText);
     const citationData = [];
-    // axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
 
+    // axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
     // getUrlData(inputText);
 
-    for(let url of inputText) {
-      axios.post("/api/URLs", { params: url }).then((response) => {
-        
-        citationData.push(response.data);
-        // console.log(response.data);
-        // setDataArray(JSON.stringify(response.data));
-        // setDataArray(`${response.data.lastName}, ${response.data.initial}, ${response.data.publicationDate}  ${"<h1>"} ${response.data.title} ${"</h1>"}, ${response.data.publisher}, ${response.data.url}`)
-        
-      });
-      console.log(citationData);
-    }
-    
+    for (let url of inputText) {
+      citationData.push(
+        axios.post("/api/URLs", { params: url }).then((response) => {
+          if (response.data === "URL is not supported!") {
+            setDataArray("URL is not supported");
+          } else {
+            return response.data;
+          }
+        })
+      );
 
-    
+      Promise.all(citationData).then((data) => {
+        console.log(data);
+        if (data[0] === undefined || data === undefined || Object.keys(data[0]) < 5 || citationData[0] === "URL is not supported!") {
+          setDataArray("URL is not supported");
+          return;
+        } else {
+                   
+          setDataArray(test_data(data, inputText));
+          return;
+        }
+      });
+    }
   };
 
   return (
@@ -38,8 +45,8 @@ export default function Input() {
         <textarea className="textarea"></textarea>
         <input type="submit" onClick={clicked} />
       </form>
-      <br/>
-      <div><i>{dataArray}</i></div>
+      <br />
+      <div>{dataArray}</div>
     </div>
   );
 }

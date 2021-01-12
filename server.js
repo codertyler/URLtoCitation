@@ -5,9 +5,7 @@ const { DOMParser } = require("xmldom");
 const cheerio = require("cheerio");
 const request = require("request");
 const { url } = require("inspector");
-const { getInitials } = require("./helpers/getInitials");
-const { getLastName } = require("./helpers/getLastName");
-const { getPubDate } = require("./helpers/getPubDate");
+const { raw } = require("express");
 
 const app = express();
 
@@ -30,47 +28,20 @@ app.post("/api/URLs", (req, res) => {
   //Pushing all the citation response data into this array
   const urlResponse = [];
 
-  //This is the citation constructor from the raw response
-  function Citation(lastName, initial, publicationDate, title, publisher, url) {
-    this.lastName = lastName;
-    this.initial = initial;
-    this.publicationDate = publicationDate;
-    this.title = title;
-    this.publisher = publisher;
-    this.url = url;
-  }
-
   request(inputObj, (error, response, html) =>{
     const $ = cheerio.load(html);
     const rawObj = JSON.parse($('[type="application/ld+json"]').html());
-    res.send(rawObj);
+    if (rawObj) {
+      res.send(rawObj);
+    } else {
+
+      res.send("URL is not supported!")
+    }
+      
   })
 
 
-//   for (let i = 0; i < inputObj.length; i++) {
-//     request(inputObj[i], (error, response, html) => {
-      
 
-//        if (!error && response.statusCode == 200) {
-//         const $ = cheerio.load(html);
-//         const rawObj = JSON.parse($('[type="application/ld+json"]').html());
-//         urlResponse.push(
-//           new Citation(
-//             getLastName(rawObj.author),
-//             getInitials(rawObj.author),
-//             getPubDate(rawObj.datePublished),
-//             rawObj.headline,
-//             rawObj.publisher.name,
-//             rawObj.mainEntityOfPage
-//           ) 
-//         );
-        
-//         console.log(urlResponse);
-//         res.send(urlResponse);
-
-//       }
-//     });
-//   }
 });
 
 // Handles any requests that don't match the ones above
