@@ -1,15 +1,8 @@
 export default function getInitials(arr) {
-  
-  const graphName = "";
-
-  if(arr["@graph"]) {
-    for (let items of arr["@graph"]) {
-      if (items.name) {
-        return items.name;
-      }
-    }
+ 
+  if(!arr.author) {
+    return;
   }
-
   
   if ((arr.author && Array.isArray(arr.author)) && arr.author[0].name) {
 

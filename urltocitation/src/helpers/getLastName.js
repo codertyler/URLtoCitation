@@ -2,6 +2,10 @@ export default function getLastName(arr) {
 
   const multipleNames = [];
 
+  if(!arr.author) {
+    return;
+  }
+  
   
   if(arr.author.length > 1) {
     for(let obj of arr.author) {
