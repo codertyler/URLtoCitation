@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
     "express": "^4.17.1",
+    "heroku": "^7.47.7",
     "node-fetch": "^2.6.1",
     "request": "^2.88.2",
     "xmldom": "^0.4.0"
