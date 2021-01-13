@@ -1,6 +1,7 @@
 /* eslint-disable default-case */
 
 export default function getPubDate(arr) {
+ 
   const strToArray = arr.datePublished.split("-");
 
   let pubMonth;
