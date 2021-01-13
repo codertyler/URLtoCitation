@@ -6,8 +6,7 @@ const cheerio = require("cheerio");
 const request = require("request");
 const { url } = require("inspector");
 const { raw } = require("express");
-const port = process.env.PORT || 5000;
-app.listen(port);
+
 
 const app = express();
 
@@ -43,7 +42,8 @@ app.post("/api/URLs", (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
-
+const port = process.env.PORT || 5000;
+app.listen(port);
 
 
 console.log("App is listening on port " + port);
