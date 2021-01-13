@@ -46,7 +46,7 @@ export default function Input() {
       <form className="main_form">
         <input
           type="url"
-          placeholder="Copy and paste your article URL here"
+          placeholder="Copy and paste your article URL"
           className="main_input"
           required
         ></input>
