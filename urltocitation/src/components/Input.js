@@ -26,12 +26,11 @@ export default function Input() {
       );
 
       Promise.all(citationData).then((data) => {
-        console.log(data);
-        if (data[0] === undefined || data === undefined || Object.keys(data[0]) < 5 || citationData[0] === "URL is not supported!") {
+        if (data[0] === undefined || data === undefined || citationData[0] === "URL is not supported!") {
+
           setDataArray("URL is not supported");
           return;
         } else {
-                   
           setDataArray(test_data(data, inputText));
           return;
         }
