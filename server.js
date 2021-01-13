@@ -14,7 +14,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, "urltocitation/build")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 
 app.post("/api/URLs", (req, res) => {
@@ -41,7 +41,7 @@ app.post("/api/URLs", (req, res) => {
 
 // Handles any requests that don't match the ones above
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/urltocitation/build/index.html"));
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 
