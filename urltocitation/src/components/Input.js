@@ -8,7 +8,7 @@ export default function Input() {
 
   const clicked = (event) => {
     event.preventDefault();
-    const inputText = [event.target.previousSibling.value];
+    const inputText = [event.target.parentElement.childNodes[0].value];
     const citationData = [];
 
     // axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
@@ -26,8 +26,11 @@ export default function Input() {
       );
 
       Promise.all(citationData).then((data) => {
-        if (data[0] === undefined || data === undefined || citationData[0] === "URL is not supported!") {
-
+        if (
+          data[0] === undefined ||
+          data === undefined ||
+          citationData[0] === "URL is not supported!"
+        ) {
           setDataArray("URL is not supported");
           return;
         } else {
@@ -41,11 +44,21 @@ export default function Input() {
   return (
     <div className="input_container">
       <form className="main_form">
-        <textarea className="textfield"></textarea>
-        <input type="submit" onClick={clicked} />
+        <input
+          type="url"
+          placeholder="Copy and paste your article URL here"
+          className="main_input"
+          required
+        ></input>
+        <br />
+        <button type="submit" class="btn btn-primary" onClick={clicked}>
+          Create Citation
+        </button>
       </form>
       <br />
-      <div>{dataArray}</div>
+      <div className="resultCitation">
+        {dataArray}
+        </div>
     </div>
   );
 }

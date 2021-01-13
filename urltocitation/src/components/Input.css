@@ -2,17 +2,35 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  max-width: 60em;
+  align-items: center;
   
 }
 
 .main_form {
   display: flex;
   flex-direction: column;
-  
+  justify-content: center;
+  align-items: center;
+  height: 10em;
 }
+
+.main_input {
+  max-width: 30em;
+}
+
+.btn {
+  width: 10em;  
+}
+
 
 .textarea {
   width: 500px;
   height: 500px;
   resize: none;
+}
+
+.resultCitation {
+  height: 20em;
+  padding: 2em;
 }
