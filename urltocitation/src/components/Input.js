@@ -8,7 +8,7 @@ export default function Input() {
 
   const clicked = (event) => {
     event.preventDefault();
-    const inputText = event.target.previousSibling.value.split(/\n/);
+    const inputText = [event.target.previousSibling.value];
     const citationData = [];
 
     // axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
@@ -41,7 +41,7 @@ export default function Input() {
   return (
     <div className="input_container">
       <form className="main_form">
-        <textarea className="textarea"></textarea>
+        <textarea className="textfield"></textarea>
         <input type="submit" onClick={clicked} />
       </form>
       <br />

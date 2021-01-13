@@ -14,12 +14,6 @@ app.use(bodyParser.json());
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
 
-// An api endpoint that returns a short list of items
-app.get("/api/getList", (req, res) => {
-  var list = ["item1", "item2", "item3"];
-  res.json(list);
-  console.log("Sent list of items");
-});
 
 app.post("/api/URLs", (req, res) => {
   //Getting the urls from the front
@@ -34,7 +28,6 @@ app.post("/api/URLs", (req, res) => {
     if (rawObj) {
       res.send(rawObj);
     } else {
-
       res.send("URL is not supported!")
     }
       
