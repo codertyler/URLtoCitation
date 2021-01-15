@@ -54,7 +54,7 @@ export default function Input() {
         ></input>
         <br />
         <button type="submit" class="btn btn-primary" onClick={clicked}>
-          Create Citation
+          Generate Citation
         </button>
       </form>
       <br />

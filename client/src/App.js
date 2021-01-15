@@ -5,7 +5,7 @@ import Tested from "./components/Tested";
 function App() {
   return (
     <div className="App">
-      <h1>APA Style Citation Creator*</h1>
+      <h1>APA Style Citation Generator*</h1>
       <p>*Tested on most of the major news and research outlets <b>such as</b></p>
       <Tested />
       <Input />
