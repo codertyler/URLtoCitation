@@ -12,7 +12,6 @@ Citation generator which takes url of the online article and generates the citat
 <img src="https://github.com/codertyler/URLtoCitation/blob/master/client/public/assets/urltocitation.gif" width="800">
 <img src="https://github.com/codertyler/URLtoCitation/blob/master/client/public/assets/main_page.png" width="800">
 <img src="https://github.com/codertyler/URLtoCitation/blob/master/client/public/assets/the_economist.png" width="800">
-<img src="https://github.com/codertyler/URLtoCitation/blob/master/client/public/assets/urltocitation.gif" width="800">
 
 ## Tested and working on the following websites:
   - Wall Street Journal
