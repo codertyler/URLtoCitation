@@ -1,0 +1,20 @@
+.tested_websites_container {
+  display: flex;
+  justify-content: center;
+}
+
+.tested_websites {
+  display: flex;
+  justify-content: center;
+  width: 30em;
+  font-size: 0.8em;
+  word-wrap: break-word;
+
+}
+
+.tested_websites > div {
+  word-wrap: normal;
+  text-align: left;
+  width: 10em;
+
+}
