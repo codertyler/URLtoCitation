@@ -26,6 +26,7 @@ export default function Input() {
       );
 
       Promise.all(citationData).then((data) => {
+        console.log(data);
         if (
           data[0] === undefined ||
           data === undefined ||
@@ -34,6 +35,7 @@ export default function Input() {
           setDataArray("URL is not supported");
           return;
         } else {
+          console.log(data);
           setDataArray(test_data(data, inputText));
           return;
         }
@@ -46,7 +48,7 @@ export default function Input() {
       <form className="main_form">
         <input
           type="url"
-          placeholder="Copy and paste your article URL"
+          placeholder="Paste the link to your article"
           className="main_input"
           required
         ></input>
