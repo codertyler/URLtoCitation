@@ -28,8 +28,9 @@ export default function Tested() {
             Global News 
             <br />
             CBC News 
-            BBC news 
             <br />
+            BBC news 
+            
           </div>
         </div>
       </div>
