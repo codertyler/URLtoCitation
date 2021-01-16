@@ -5,10 +5,15 @@ import Tested from "./components/Tested";
 function App() {
   return (
     <div className="App">
-      <h1>APA Style Citation Generator*</h1>
-      <p>*Tested on most of the major news and research outlets <b>such as</b></p>
-      <Tested />
-      <Input />
+      <div className="components_container">
+        <h1>APA Style Citation Generator*</h1>
+        <p>
+          *Tested on most of the major news and research outlets <b>such as</b>
+        </p>
+        <Tested />
+        <Input />
+      </div>
+
       <footer className="footer">
         <p>
           All rights reserved © Designed and coded by Tyler <br /> Visit my{" "}

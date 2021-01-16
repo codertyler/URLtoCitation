@@ -12,6 +12,10 @@ body > #root > div {
   flex-direction: column;
 }
 
+.components_container {
+  /* margin-top: -10em; */
+}
+
 h1 {
   color: rgb(255, 255, 255);
   padding: 0.5em;

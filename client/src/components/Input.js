@@ -26,7 +26,6 @@ export default function Input() {
       );
 
       Promise.all(citationData).then((data) => {
-        console.log(data);
         if (
           data[0] === undefined ||
           data === undefined ||
@@ -44,6 +43,7 @@ export default function Input() {
   };
 
   return (
+    <>
     <div className="input_container">
       <form className="main_form">
         <input
@@ -58,9 +58,10 @@ export default function Input() {
         </button>
       </form>
       <br />
+    </div>
       <div className="resultCitation">
         {dataArray}
         </div>
-    </div>
+    </>
   );
 }

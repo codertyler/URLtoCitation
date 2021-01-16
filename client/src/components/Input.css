@@ -3,9 +3,7 @@
   justify-content: center;
   flex-direction: column;
   max-width: 60em;
-  max-height: 10em;
-  margin-top: 2em;
-  
+  /* max-height: 3em; */
   align-items: center;
   
 }
@@ -16,25 +14,20 @@
   justify-content: center;
   align-items: center;
   height: 10em;
+  margin: 0;
+  padding: 0;
 }
 
 .main_input {
-  max-width: 40em;
+  /* max-width: 40em; */
   width: 20em;
 }
 
-.btn {
-  width: 10em;  
-}
-
-
-.textarea {
-  width: 500px;
-  height: 500px;
-  resize: none;
-}
 
 .resultCitation {
-  height: 20em;
-  padding: 2em;
+  /* height: 20em;
+  padding: 2em; */
+  margin-top: 0;
+  position: relative;
+  padding: 0 1em 0 1em;
 }
