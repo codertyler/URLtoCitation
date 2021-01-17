@@ -2,6 +2,8 @@
 
 Citation generator which takes url of the online article and generates the citation in APA style.
 
+Check out the deployed version on www.urltocitation.com
+
 ## Stacks
 - Express JS
 - React JS
