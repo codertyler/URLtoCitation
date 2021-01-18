@@ -1,6 +1,10 @@
 .tested_websites_container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(245, 238, 238);
+  padding: 2em;
 }
 
 .tested_websites {
