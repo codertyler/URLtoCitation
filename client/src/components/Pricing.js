@@ -10,7 +10,7 @@ export default function Pricing() {
         <b>Choose the right plan for you</b>
       </h1>
       <div className="cards_container">
-        <Card border="primary" style={{ width: "15rem" }}>
+        <Card border="primary" style={{ width: "13rem" }}>
           <Card.Header>Try out the generator</Card.Header>
           <Card.Body>
             <Card.Title><b>Free</b></Card.Title>
@@ -32,7 +32,7 @@ export default function Pricing() {
           </Card.Body>
         </Card>
 
-        <Card border="primary" style={{ width: "15rem" }}>
+        <Card border="primary" style={{ width: "13rem" }}>
           <Card.Header>Become our proud user</Card.Header>
           <Card.Body>
           <Card.Title><b>Pro</b></Card.Title>
@@ -51,11 +51,32 @@ export default function Pricing() {
           </Card.Body>
         </Card>
 
-        <Card border="primary" style={{ width: "15rem" }}>
+        <Card border="primary" style={{ width: "13rem" }}>
           <Card.Header>Beyond Pro</Card.Header>
           <Card.Body>
             <Card.Title><b>Pro Plus</b></Card.Title>
             <h6>9.99 CAD</h6>
+            <Button variant="outline-primary">Get Started</Button>
+            <Card.Text className="card_text">
+            <br/>
+            <ul>
+                <li>Unlimited citations</li>
+                <li>Save your citations</li>
+                <li>Generate 100 citations at a time</li>
+                <li>Any style available</li>
+                <li>Request to include custom sources</li>
+
+
+              </ul>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Card border="primary" style={{ width: "13rem" }}>
+          <Card.Header>Lifetime</Card.Header>
+          <Card.Body>
+            <Card.Title><b>Lifetime access</b></Card.Title>
+            <h6>99.99 CAD</h6>
             <Button variant="outline-primary">Get Started</Button>
             <Card.Text className="card_text">
             <br/>

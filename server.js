@@ -1,11 +1,8 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const { DOMParser } = require("xmldom");
 const cheerio = require("cheerio");
 const request = require("request");
-const { url } = require("inspector");
-const { raw } = require("express");
 
 
 const app = express();

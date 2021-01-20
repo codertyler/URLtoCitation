@@ -15,6 +15,7 @@ export default function Input() {
     event.preventDefault();
     const inputText = [event.target.parentElement.childNodes[0].value];
     const citationData = [];
+    
 
 
     // axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';

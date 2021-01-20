@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Button, Nav, Form, FormControl } from 'react-bootstrap';
+import { Navbar, Button, Nav } from 'react-bootstrap';
 
 
 export default function NavBar() {
@@ -16,7 +16,7 @@ export default function NavBar() {
       <Nav.Link href="/features">Features</Nav.Link>
       <Nav.Link href="/pricing">Pricing</Nav.Link>
     </Nav>
-      <Button variant="outline-light">Sign Up</Button>
+     <Button variant="outline-light" href="/signup">Sign Up</Button>
   </Navbar>
 
 </>
