@@ -1,8 +1,8 @@
 .footer {
   margin: 0;
   padding: 0;
-  position: fixed;
   bottom: 0;
+  border-top: 2px black solid;
 }
 
 .footer p {

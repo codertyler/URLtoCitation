@@ -4,7 +4,8 @@ import NavBar from "./components/NavBar";
 import Main from "./components/Main";
 import Pricing from "./components/Pricing";
 import Result from "./components/Result";
-import Signup from "./components/Signup"
+import Signup from "./components/Signup";
+import Footer from "./components/Footer"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         </Route>
       </Switch>
       <Result />
+      <Footer />
     </Router>
   );
 }
