@@ -13,20 +13,4 @@
 
 
 
-h1, h2, h5 {
-  padding: 0.5em;
-  text-align: center;
-}
-
-p {
-  padding: 0em 1.5em 0em 1.5em;
-  text-align: center;
-}
-
-
-
-.intro_container {
-  background-color: rgb(238, 229, 229);
-  padding: 2em;
-}
 

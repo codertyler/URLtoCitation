@@ -14,7 +14,7 @@ export default function Signup() {
           <input
             type="password"
             name="password2"
-            placeholder="Retype password"
+            placeholder="Re-type password"
           />
 
           <input type="submit" name="signup_submit" value="Sign me up" />

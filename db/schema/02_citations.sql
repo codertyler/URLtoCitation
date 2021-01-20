@@ -1,6 +1,11 @@
-drop table if exists users cascade;
-create table users (
-	id serial primary key not null,
+drop table if exists citations cascade;
+create table citations (
+	citations_id generated always as identity,
+  citation_url varchar(500) not null,
 	citation varchar(1000) not null,
-	userid foreign key not null,
+  citation_date varchar(20) not null,
+	constraint fk_user
+    foreign key(user_id)
+      references users(user_id)
+      on delete cascade
 )
