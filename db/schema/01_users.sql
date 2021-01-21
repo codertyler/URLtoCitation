@@ -1,4 +1,5 @@
 drop table if exists users cascade;
+
 create table users (
 	user_id INT GENERATED ALWAYS AS IDENTITY,
 	username varchar(255) not null,
@@ -11,4 +12,5 @@ create table users (
 	passsugar varchar(255) not null,
 	passhash varchar(255) not null,
 		primary key (user_id)
-)
+);
+

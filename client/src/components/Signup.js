@@ -5,7 +5,7 @@ export default function Signup() {
   return (
     <div>
       <div id="login-box">
-        <div className="left">
+        <form action="/signup" method="POST" className="left">
           <h1>Sign up</h1>
 
           <input type="text" name="username" placeholder="Username" />
@@ -18,7 +18,7 @@ export default function Signup() {
           />
 
           <input type="submit" name="signup_submit" value="Sign me up" />
-        </div>
+        </form>
 
         <div className="right">
           <span className="loginwith">
