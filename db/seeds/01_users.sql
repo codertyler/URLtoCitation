@@ -1,0 +1,11 @@
+-- insert into users(username,
+-- email,
+-- membership_type,
+-- membership_start_date,
+-- billed_type,
+-- auto_billing,
+-- passsugar,
+-- passhash)
+-- values (
+
+-- )

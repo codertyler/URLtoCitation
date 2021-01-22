@@ -2,7 +2,6 @@ drop table if exists users cascade;
 
 create table users (
 	user_id INT GENERATED ALWAYS AS IDENTITY,
-	username varchar(255) not null,
 	email varchar(255) not null,
 	membership_type varchar(10) not null,
 	membership_start_date varchar(20) not null,
