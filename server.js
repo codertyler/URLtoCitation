@@ -3,15 +3,28 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cheerio = require("cheerio");
 const request = require("request");
+const userRoutes = require('./routes');
+const queries = require('./queries');
+
+
+const cookieSession = require('cookie-session');
 
 
 const app = express();
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}))
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
 
+const userRouter = express.Router();
+userRoutes(userRouter, queries);
+app.use('/signup', userRouter)
 
 app.post("/api/URLs", (req, res) => {
   //Getting the urls from the front

@@ -5,7 +5,8 @@ import Main from "./components/Main";
 import Pricing from "./components/Pricing";
 import Result from "./components/Result";
 import Signup from "./components/Signup";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route exact path="/signup">
           <Signup />
+        </Route>
+        <Route exact path="/dashboard">
+          <Dashboard />
         </Route>
       </Switch>
       <Result />

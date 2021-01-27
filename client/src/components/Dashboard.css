@@ -1,0 +1,11 @@
+.dashboard_container {
+  background-color: rgb(236, 227, 227);
+}
+
+.header_section {
+  display: flex;
+}
+
+.header_section h2 {
+  font-weight: 300;
+}
